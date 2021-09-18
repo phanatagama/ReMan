@@ -24,7 +24,7 @@
         android:layout_toEndOf="@id/img_item_photo"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="@string/heroes_name" />
+        tools:text="@string/comic_title" />
 
     <LinearLayout
         android:id="@+id/layout_button"

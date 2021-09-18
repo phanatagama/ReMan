@@ -1,5 +1,6 @@
 package com.example.myrecyclerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -39,6 +40,14 @@ class DetailActivity : AppCompatActivity() {
             .into(imgCover)
         btnFavorite.setOnClickListener {
             Toast.makeText(this, "Favorit " + title, Toast.LENGTH_SHORT).show()
+        }
+        btnShare.setOnClickListener {
+            val shareIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "Judul: $title \nSinopsis: $detail")
+                type = "text/plain"
+            }
+            startActivity(Intent.createChooser(shareIntent, "Share comic to.."))
         }
     }
 }
