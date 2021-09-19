@@ -11,11 +11,12 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         supportActionBar?.title = "About Me"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         var profile: ImageView = findViewById(R.id.profile)
         Glide.with(this)
             .load(R.drawable.profile)
-            .apply(RequestOptions().override(100, 100))
+            .apply(RequestOptions().dontTransform())
             .into(profile)
     }
 }

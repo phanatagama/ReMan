@@ -21,6 +21,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         supportActionBar?.title = "Detail Komik"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val imgCover: ImageView = findViewById(R.id.img_item_photo)
         val tvTitle: TextView = findViewById(R.id.tv_item_name)
@@ -36,7 +37,7 @@ class DetailActivity : AppCompatActivity() {
         tvDetail.text = detail
         Glide.with(this)
             .load(img)
-            .apply(RequestOptions().override(100, 100))
+            .apply(RequestOptions().dontTransform())
             .into(imgCover)
         btnFavorite.setOnClickListener {
             Toast.makeText(this, "Favorit " + title, Toast.LENGTH_SHORT).show()
