@@ -16,7 +16,7 @@ class AboutActivity : AppCompatActivity() {
         var profile: ImageView = findViewById(R.id.profile)
         Glide.with(this)
             .load(R.drawable.profile)
-            .apply(RequestOptions().dontTransform())
+            .apply(RequestOptions().override(100, 100))
             .into(profile)
     }
 }
