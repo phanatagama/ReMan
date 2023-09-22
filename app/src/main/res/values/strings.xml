@@ -2,6 +2,7 @@
     <string name="app_name">ReadManga</string>
     <string name="comic_title">Judul Komik</string>
     <string name="detail">Detail</string>
+    <string name="info">Info</string>
     <string name="comic">Komik</string>
     <string name="about">About</string>
     <string name="favorite">Favorite</string>
@@ -9,4 +10,8 @@
     <string name="user_name">Cahyadi Setia Phanatagama</string>
     <string name="user_email">phanatagama@gmail.com"</string>
     <string name="sinopsis">Sinopsis</string>
+    <string name="profile_item_stars">Stars: %s</string>
+    <string name="profile_item_language">Language: %s</string>
+    <string name="profile_item_issues">Issues: %s</string>
+    <string name="hero_image">Hero Image</string>
 </resources>
