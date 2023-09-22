@@ -32,14 +32,15 @@ jobs:
           cache: 'gradle'
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-      - name: Instrumentation Tests
-        uses: reactivecircus/android-emulator-runner@v2
+      - name: Run connected tests
+        uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 29
-          script: ./gradlew connectedAndroidTest
-
+          api-level: 30
+          target: google_apis
+          arch: x86_64
+          script: ./gradlew connectedCheck
   publish:
-    name: CD - Test -run ktlint, unit tests for Android. Finally upload the apk to firebase distribution
+    name: CD - Test -run ktlint, unit tests for Android. Finally upload the apk
     needs: [ unit_tests, android_tests ]
     runs-on: ubuntu-latest
     steps:
