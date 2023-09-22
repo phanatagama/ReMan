@@ -1,83 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".DetailActivity">
-        <ImageView
-            android:id="@+id/img_item_photo"
-            android:layout_width="150dp"
-            android:layout_height="220dp"
-            android:layout_marginBottom="4dp"
-            android:adjustViewBounds="true"
-            tools:src="@tools:sample/avatars" />
+        android:layout_height="300dp"
 
-        <TextView
-            android:id="@+id/tv_item_name"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:layout_toEndOf="@id/img_item_photo"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:text="@string/comic_title" />
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="24dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        <LinearLayout
-            android:id="@+id/layout_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_item_name"
-            android:layout_toEndOf="@id/img_item_photo"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_set_favorite"
-                style="@style/Widget.AppCompat.Button.Colored"
+            <ImageView
+                android:id="@+id/img_item_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/favorite"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btn_set_share"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:contentDescription="@string/hero_image"
+                android:src="@drawable/gintama"
+                app:layout_collapseMode="parallax"/>
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/share"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:layout_height="256dp"
+                android:background="@drawable/scrim_top"
+                app:layout_collapseMode="pin"/>
 
-        <TextView
-            android:id="@+id/tv_item_sinopsis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_item_photo"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:text="@string/sinopsis" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:layout_gravity="bottom"
+                android:layout_alignBottom="@+id/image"
+                android:background="@drawable/scrim_bottom"/>
 
-        <TextView
-            android:id="@+id/tv_item_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_item_sinopsis"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            tools:text="TextView" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/Theme.MyRecyclerView.NoActionBar"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:layout_collapseMode="pin" />
 
-    </RelativeLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-</ScrollView>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/layout_detail"/>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
