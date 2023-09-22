@@ -1,0 +1,69 @@
+name: CD to test
+
+on:
+  push:
+    branches:
+      - dev-update-submission
+
+jobs:
+  unit_tests:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Unit tests
+        run: ./gradlew test
+
+  android_tests:
+    runs-on: [ macos-latest ]
+
+    env:
+      GRADLE_OPTS: -Dorg.gradle.jvmargs="-XX:MaxMetaspaceSize=1g"
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 11
+          cache: 'gradle'
+      - name: Instrumentation Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedAndroidTest
+
+  publish:
+    name: CD - Test -run ktlint, unit tests for Android. Finally upload the apk to firebase distribution
+    needs: [ unit_tests, android_tests ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt-openj9'
+          java-version: 11
+          cache: 'gradle'
+      - uses: burrunan/gradle-cache-action@v1
+        name: Cache .gradle
+        with:
+          gradle-version: 7.0.2
+          properties: |
+            kotlin.parallel.tasks.in.project=true
+          execution-only-caches: true
+          save-gradle-dependencies-cache: false
+          save-local-build-cache: false
+          concurrent: true
+          gradle-build-scan-report: false
+          gradle-distribution-sha-256-sum-warning: false
+          save-generated-gradle-jars: false
+      - name: Build all artifacts with debug mode and the APK is uploaded on Firebase App Distribution
+        run: ./gradlew assembleDebug appDistributionUploadDebug
+        env:
+          DEV_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          DEV_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          DEV_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          DEV_KEY_APPID: ${{ secrets.KEY_APPID }}
