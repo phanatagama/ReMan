@@ -33,7 +33,7 @@ ReMan is a mobile application built with Kotlin programming. Data sources are ha
 
 ## 🛠️ Tech Stack Used
 | Kotlin      | Android Studio      | Git      | Github      | Figma      |
-|------------|-------------|-------------|-------------|-------------|-------------|
+|------------|-------------|-------------|-------------|-------------|
 | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png" width="150"> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Android_Studio_Icon_%282014-2019%29.svg/1200px-Android_Studio_Icon_%282014-2019%29.svg.png" width="150"> | <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" width="150"> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" width="150"> | <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="150"> |
 
 ### Extra Library
@@ -51,9 +51,10 @@ This project is an old project that was updated so that some functions do not ru
 
 ## 👁️ Preview/Screenshots
 
-| ![landing-page](https://user-images.githubusercontent.com/48324618/145372808-ae5dc7a8-f310-4643-84ed-b678a8aeeff1.jpg) **Landing Page** | ![login-page](https://user-images.githubusercontent.com/48324618/145372649-d459f07a-ba18-4cd0-aee1-fe91524abce5.jpg) **Login Page** | ![register-pagge](https://user-images.githubusercontent.com/48324618/145372937-6fddfba7-4abd-40fa-aa01-c01d349ad1d8.jpg) **Register Page** | ![usr-profile](https://user-images.githubusercontent.com/48324618/145373431-ebd4e049-9558-4fd7-8e0d-80f0b83b02e3.jpg) **User Profile** |
+
+
+| ![Screenshot_1695400904](https://github.com/phanatagama/ReMan/assets/48324618/e8811ede-9442-4e4c-b7df-f3dd4f47f3fc) **Splash Screen** | ![Screenshot_1695400787](https://github.com/phanatagama/ReMan/assets/48324618/a1bdc0e7-6aa4-41ee-b171-28d679ed1c2e) **List Manga** | ![Screenshot_1695400840](https://github.com/phanatagama/ReMan/assets/48324618/adfc1fed-c79d-4dc9-bafd-01f7a244aaa3) **Synopsis Manga** | ![Screenshot_1695400878](https://github.com/phanatagama/ReMan/assets/48324618/f242f615-e181-47f5-a51e-55841403e4de) **About Page** |
 | :--: | :--: | :--: | :--: | 
-| ![home-page](https://user-images.githubusercontent.com/48324618/145373302-0a966fd3-e787-41c7-8c18-fc1e9ed79588.jpg) **Home Page** | ![detail-product](https://user-images.githubusercontent.com/48324618/145373659-0c01acd8-f2b8-4f9f-a2b3-320117b61593.jpg) **Detail Product** | ![product-page](https://user-images.githubusercontent.com/48324618/145373555-45e28331-c41d-47f1-96a5-74cd2d6d3728.jpg) **Product Page** | ![edit-product](https://user-images.githubusercontent.com/48324618/145373915-5c340a34-9e18-44a8-b81a-cc63882a313a.jpg) **Add/Edit Product** |
 <!-- |   -->
 
 ## License
@@ -77,5 +78,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
