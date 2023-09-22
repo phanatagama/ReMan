@@ -1,4 +1,4 @@
-package com.example.myrecyclerview
+package com.example.myrecyclerview.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.myrecyclerview.R
+import com.example.myrecyclerview.data.model.Comic
 
-class ListComicAdapter(val listComic: ArrayList<Comic>) : RecyclerView.Adapter<ListComicAdapter.ListViewHolder>() {
+class ListComicAdapter(private val listComic: ArrayList<Comic>) : RecyclerView.Adapter<ListComicAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -23,13 +25,8 @@ class ListComicAdapter(val listComic: ArrayList<Comic>) : RecyclerView.Adapter<L
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val comic = listComic[position]
-        Glide.with(holder.itemView.context)
-            .load(comic.photo)
-            .apply(RequestOptions().override(55, 55))
-            .into(holder.imgPhoto)
-        holder.tvName.text = comic.title
-        holder.tvDetail.text = comic.detail
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listComic[holder.adapterPosition]) }
+        holder.bind(comic)
+//        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listComic[holder.adapterPosition]) }
     }
 
     override fun getItemCount(): Int {
@@ -42,7 +39,17 @@ class ListComicAdapter(val listComic: ArrayList<Comic>) : RecyclerView.Adapter<L
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
-        var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
+        var tvInfo: TextView = itemView.findViewById(R.id.tv_item_info)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
+
+        fun bind(data:Comic){
+            Glide.with(itemView.context)
+                .load(data.photo)
+                .apply(RequestOptions().override(55, 55))
+                .into(imgPhoto)
+            tvName.text = data.title
+            tvInfo.text = data.info
+            itemView.rootView.setOnClickListener { onItemClickCallback.onItemClicked(data) }
+        }
     }
 }
