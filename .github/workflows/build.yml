@@ -62,15 +62,29 @@ jobs:
         run: chmod +x ./gradlew
         
       # 2 Generate AAB
-      - name: Build Release AAB
-        run: ./gradlew bundleRelease --stacktrace
+      - name: Check spotless
+        run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
+
+      - name: Build all build type and flavor permutations
+        run: ./gradlew assemble
+
+      - name: Upload build outputs (APKs)
+        uses: actions/upload-artifact@v3
+        with:
+          name: APKs
+          path: '**/build/outputs/apk/**/*.apk'
+
+      - name: Run local tests
+        run: ./gradlew testDemoDebug testProdDebug
+      # - name: Build Release AAB
+      #   run: ./gradlew bundleRelease --stacktrace
       # 3 Sign AAB
       - name: Sign AAB
         uses: r0adkll/sign-android-release@v1
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: app/build/outputs/apk/foss/release
+          releaseDirectory: app/build/outputs/apk/**/
           signingKeyBase64: ${{ secrets.KEY_SIGNBASE64 }}
           alias: ${{ secrets.KEY_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -89,7 +103,7 @@ jobs:
       - name: Push AAB to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/bundle/release/*.aab"
+          artifacts: "app/build/outputs/apk/release/*.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
           tag: v1.0.${{ github.run_number }}
