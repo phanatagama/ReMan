@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -11,6 +10,17 @@
         <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/MyRecyclerView/app/src/main/res/layout/item_row_comic.xml" value="0.264" />
         <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/MyRecyclerView/app/src/main/res/layout/item_row_hero.xml" value="0.264" />
         <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/MyRecyclerView/app/src/main/res/menu/menu_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/drawable/scrim_bottom.xml" value="0.3764102564102564" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/drawable/scrim_top.xml" value="0.3764102564102564" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/activity_about.xml" value="0.3625" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/activity_details.xml" value="0.33" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/item_row_comic.xml" value="0.33" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/layout_detail.xml" value="0.3625" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/layout_detaill.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/layout_header.xml" value="0.3625" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/layout/layout_project_item.xml" value="0.33" />
+        <entry key="..\:/Users/Phanatagama/AndroidStudioProjects/ReMan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37864583333333335" />
       </map>
     </option>
   </component>

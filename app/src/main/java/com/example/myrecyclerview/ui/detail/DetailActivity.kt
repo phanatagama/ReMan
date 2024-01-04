@@ -17,16 +17,11 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-//        setTheme(R.style.Theme_MyRecyclerView)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-//        supportActionBar?.title = "Detail Komik"
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         bindViews()
     }
